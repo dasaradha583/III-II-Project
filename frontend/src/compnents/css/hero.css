@@ -1,0 +1,110 @@
+.hero-section {
+    position: relative;
+    height: 100vh; /* Full viewport height */
+    display: flex;
+    align-items: center;
+    justify-content: flex-end; /* Align content to the right */
+    padding: 0 2rem;
+    background-image: url("../assets/BloodDonation.jpg"); /* Use local image */
+    background-size: cover; /* Ensure the image covers the full background */
+    background-position: center;
+    color: white;
+}
+
+.hero-section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5); /* Dark overlay for better text visibility */
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px; /* Increase max-width for more text */
+    width: 100%;
+    text-align: left; /* Align text to the right */
+}
+
+.hero-text h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: #ff4d4d;
+}
+
+.hero-text p {
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.8;
+    color: white;
+}
+
+.stats {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin-bottom: 2rem;
+}
+
+.stats h3 {
+    font-size: 1.5rem;
+    color: #ff4d4d;
+    margin-bottom: 1rem;
+}
+
+.stats ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.stats li {
+    font-size: 1rem;
+    color: white;
+    margin-bottom: 0.5rem;
+}
+
+.cta-button {
+    background-color: #ff4d4d;
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    display: block;
+    margin: 0 auto; /* Center the button */
+    margin-top: 2rem; /* Add space above the button */
+}
+
+.cta-button:hover {
+    background-color: #e60000;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hero-section {
+        height: auto;
+        padding: 2rem 1rem;
+        text-align: center; /* Center text on smaller screens */
+        justify-content: center;
+    }
+
+    .hero-content {
+        max-width: 100%;
+        text-align: center; /* Center text on smaller screens */
+        padding-right: 0; /* Reset padding for smaller screens */
+    }
+
+    .hero-text h2 {
+        font-size: 2rem;
+    }
+
+    .hero-text p {
+        font-size: 1rem;
+    }
+}
