@@ -1,14 +1,16 @@
 .hero-section {
     position: relative;
     height: 100vh; /* Full viewport height */
-    display: flex;
-    align-items: center;
-    justify-content: flex-end; /* Align content to the right */
-    padding: 0 2rem;
     background-image: url("../assets/BloodDonation.jpg"); /* Use local image */
     background-size: cover; /* Ensure the image covers the full background */
     background-position: center;
+    background-repeat: no-repeat; /* Prevent the image from repeating */
     color: white;
+    padding-top: 80px; /* Add padding to prevent overlap with navbar */
+    padding-bottom: 40px; /* Add padding at the bottom for the button */
+    display: flex;
+    align-items: center;
+    justify-content: flex-end; /* Align content to the right */
 }
 
 .hero-section::before {
@@ -25,19 +27,19 @@
 .hero-content {
     position: relative;
     z-index: 2;
-    max-width: 800px; /* Increase max-width for more text */
+    max-width: 800px; /* Limit the width of the content */
     width: 100%;
-    text-align: left; /* Align text to the right */
+    padding-right: 20px; /* Add padding to the right */
 }
 
 .hero-text h2 {
-    font-size: 2.5rem;
+    font-size: 2.5rem; /* Large heading size */
     margin-bottom: 1rem;
     color: #ff4d4d;
 }
 
 .hero-text p {
-    font-size: 1.1rem;
+    font-size: 1.1rem; /* Paragraph size */
     margin-bottom: 1.5rem;
     line-height: 1.8;
     color: white;
@@ -51,7 +53,7 @@
 }
 
 .stats h3 {
-    font-size: 1.5rem;
+    font-size: 1.5rem; /* Stats heading size */
     color: #ff4d4d;
     margin-bottom: 1rem;
 }
@@ -62,7 +64,7 @@
 }
 
 .stats li {
-    font-size: 1rem;
+    font-size: 1rem; /* Stats list item size */
     color: white;
     margin-bottom: 0.5rem;
 }
@@ -77,8 +79,9 @@
     cursor: pointer;
     transition: background-color 0.3s ease;
     display: block;
-    margin: 0 auto; /* Center the button */
-    margin-top: 2rem; /* Add space above the button */
+    /* Center the button */
+    /* Add space above the button */
+    margin: 2rem auto 0;
 }
 
 .cta-button:hover {
@@ -88,23 +91,61 @@
 /* Responsive Design */
 @media (max-width: 768px) {
     .hero-section {
-        height: auto;
-        padding: 2rem 1rem;
-        text-align: center; /* Center text on smaller screens */
-        justify-content: center;
+        padding-top: 60px; /* Reduce padding for smaller screens */
+        padding-bottom: 20px; /* Reduce padding for smaller screens */
+        justify-content: center; /* Center content on smaller screens */
     }
 
     .hero-content {
-        max-width: 100%;
+        padding-right: 0; /* Remove right padding on smaller screens */
         text-align: center; /* Center text on smaller screens */
-        padding-right: 0; /* Reset padding for smaller screens */
     }
 
     .hero-text h2 {
-        font-size: 2rem;
+        font-size: 2rem; /* Reduce heading size for smaller screens */
     }
 
     .hero-text p {
-        font-size: 1rem;
+        font-size: 1rem; /* Reduce paragraph size for smaller screens */
+    }
+
+    .stats {
+        padding: 1rem; /* Reduce padding for smaller screens */
+    }
+
+    .stats h3 {
+        font-size: 1.25rem; /* Reduce stats heading size for smaller screens */
+    }
+
+    .stats li {
+        font-size: 0.9rem; /* Reduce stats list item size for smaller screens */
+    }
+
+    .cta-button {
+        width: 100%; /* Make the button full width on smaller screens */
+        max-width: 300px; /* Limit the button width */
+        font-size: 0.9rem; /* Reduce button font size for smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-text h2 {
+        font-size: 1.75rem; /* Further reduce heading size for very small screens */
+    }
+
+    .hero-text p {
+        font-size: 0.9rem; /* Further reduce paragraph size for very small screens */
+    }
+
+    .stats h3 {
+        font-size: 1.1rem; /* Further reduce stats heading size for very small screens */
+    }
+
+    .stats li {
+        font-size: 0.8rem; /* Further reduce stats list item size for very small screens */
+    }
+
+    .cta-button {
+        font-size: 0.8rem; /* Further reduce button font size for very small screens */
     }
 }
