@@ -17,7 +17,7 @@ const AdminNavbar = () => {
                             <a className="nav-link" href="/admin-settings">Settings</a>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link" href="/logout">Logout</a>
+                            <a className="nav-link" href="/">Logout</a>
                         </li>
                     </ul>
                 </div>

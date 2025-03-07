@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
-
 import "./App.css";
 import DonorNavbar from "./compnents/DonorViews/DonarNavbar";
 import AdminNavbar from "./compnents/AdminViews/AdminNavbar";
@@ -11,12 +10,12 @@ import Login from "./compnents/Logins/Login";
 import DonorDashboard from "./compnents/DonorViews/DonorDashboard";
 import AdminDashboard from "./compnents/AdminViews/AdminDashboard";
 import HospitalDashboard from "./compnents/HospitalViews/HosptialDashboard";
+import ContactUs from "./compnents/ContactUs"; // Import ContactUs component
 import Footer from "./compnents/Footer";
 
 function App() {
-    const location = useLocation(); // Get the current route
+    const location = useLocation();
 
-    // Function to determine which navbar to render
     const renderNavbar = () => {
         if (location.pathname.startsWith("/donor-dashboard")) {
             return <DonorNavbar />;
@@ -25,16 +24,15 @@ function App() {
         } else if (location.pathname.startsWith("/hospital-dashboard")) {
             return <HospitalNavbar />;
         } else {
-            return <Navbar />; // Default navbar for home and login pages
+            return <Navbar />;
         }
     };
 
-    // Function to handle logout when the app is closed or refreshed
     const handleLogout = async () => {
         try {
             await fetch("http://localhost:8080/logout", {
                 method: "POST",
-                credentials: "include", // Include cookies in the request
+                credentials: "include",
             });
             console.log("Logged out successfully");
         } catch (err) {
@@ -42,7 +40,6 @@ function App() {
         }
     };
 
-    // Add event listener for beforeunload
     useEffect(() => {
         window.addEventListener("beforeunload", handleLogout);
         return () => {
@@ -52,22 +49,14 @@ function App() {
 
     return (
         <div className="App">
-            {renderNavbar()} {/* Render the appropriate navbar */}
+            {renderNavbar()}
             <Routes>
-                {/* Default route for the home page */}
                 <Route path="/" element={<HeroSection />} />
-
-                {/* Route for the login page */}
                 <Route path="/login" element={<Login />} />
-
-                {/* Route for the Donor Dashboard */}
                 <Route path="/donor-dashboard" element={<DonorDashboard />} />
-
-                {/* Route for the Admin Dashboard */}
                 <Route path="/admin-dashboard" element={<AdminDashboard />} />
-
-                {/* Route for the Hospital Dashboard */}
                 <Route path="/hospital-dashboard" element={<HospitalDashboard />} />
+                <Route path="/contact" element={<ContactUs />} /> {/* Add route for ContactUs */}
             </Routes>
             <Footer />
         </div>

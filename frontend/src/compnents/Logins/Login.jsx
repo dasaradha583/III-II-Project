@@ -3,24 +3,22 @@ import { useNavigate } from "react-router-dom"; // For navigation
 import "../css/login.css";
 
 const Login = () => {
-    const [activeTab, setActiveTab] = useState("donor"); // State to manage active tab
-    const [email, setEmail] = useState(""); // State to store email
-    const [password, setPassword] = useState(""); // State to store password
-    const [error, setError] = useState(""); // State to store error messages
-    const navigate = useNavigate(); // For navigation
+    const [activeTab, setActiveTab] = useState("donor");
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+    const [error, setError] = useState("");
+    const navigate = useNavigate();
 
     const handleSubmit = async (e) => {
-        e.preventDefault(); // Prevent default form submission
+        e.preventDefault();
 
-        // Prepare the data to send to the backend
         const loginData = {
             email,
             password,
-            role: activeTab, // Include the role (donor, admin, hospital)
+            role: activeTab,
         };
 
         try {
-            // Send a POST request to the Spring Boot backend
             const response = await fetch("http://localhost:8080/login", {
                 method: "POST",
                 headers: {
@@ -29,21 +27,19 @@ const Login = () => {
                 body: JSON.stringify(loginData),
             });
 
-            // Handle the response
             if (response.ok) {
-                const data = await response.json(); // Parse the JSON response
+                const data = await response.json();
                 console.log("Login successful:", data);
 
-                // Redirect based on the role and pass the user ID
                 if (data.role === "donor") {
-                    navigate("/donor-dashboard", { state: { userId: data.userId } }); // Redirect to Donor Dashboard
+                    navigate("/donor-dashboard", { state: { userId: data.userId } });
                 } else if (data.role === "admin") {
-                    navigate("/admin-dashboard", { state: { userId: data.userId } }); // Redirect to Admin Dashboard
+                    navigate("/admin-dashboard", { state: { userId: data.userId } });
                 } else if (data.role === "hospital") {
-                    navigate("/hospital-dashboard", { state: { userId: data.userId } }); // Redirect to Hospital Dashboard
+                    navigate("/hospital-dashboard", { state: { userId: data.userId } });
                 }
             } else {
-                const errorData = await response.json(); // Parse the error response
+                const errorData = await response.json();
                 setError(errorData.message || "Login failed. Please try again.");
             }
         } catch (err) {
@@ -77,7 +73,6 @@ const Login = () => {
                     </button>
                 </div>
 
-                {/* Donor Login Form */}
                 {activeTab === "donor" && (
                     <form onSubmit={handleSubmit}>
                         <div className="mb-3">
@@ -111,12 +106,11 @@ const Login = () => {
                             Don't have an account? <a href="/signup">Sign Up</a>
                         </p>
                         <p className="text-center mt-2">
-                            <a href="/reset-password">Forgot Password?</a> {/* Reset Password link */}
+                            <a href="/reset-password">Forgot Password?</a>
                         </p>
                     </form>
                 )}
 
-                {/* Admin Login Form */}
                 {activeTab === "admin" && (
                     <form onSubmit={handleSubmit}>
                         <div className="mb-3">
@@ -148,8 +142,6 @@ const Login = () => {
                         </button>
                     </form>
                 )}
-
-                {/* Hospital Login Form */}
                 {activeTab === "hospital" && (
                     <form onSubmit={handleSubmit}>
                         <div className="mb-3">
@@ -182,7 +174,6 @@ const Login = () => {
                     </form>
                 )}
 
-                {/* Display error messages */}
                 {error && <p className="text-danger text-center mt-3">{error}</p>}
             </div>
         </section>
