@@ -1,4 +1,4 @@
-.contact-container {
+contact-container {
     max-width: 800px;
     margin: 0 auto;
     padding: 20px;
@@ -42,4 +42,27 @@
 
 .contact-form button:hover {
     background-color: #0056b3;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .contact-info {
+        flex-direction: column; /* Stack items vertically on smaller screens */
+        align-items: center; /* Center items */
+    }
+
+    .contact-item {
+        margin: 10px 0; /* Add margin for spacing */
+        text-align: center; /* Center text */
+    }
+}
+
+@media (max-width: 480px) {
+    .contact-container {
+        padding: 10px; /* Reduce padding for very small screens */
+    }
+
+    .contact-form button {
+        font-size: 0.9rem; /* Reduce button font size for very small screens */
+    }
 }

@@ -22,7 +22,7 @@ public class LoginController {
 
         //userService.save(user);
         if(userService.save(user).equals("invalid")) {
-            return new ResponseEntity<>(user,HttpStatus.INTERNAL_SERVER_ERROR);
+            return new ResponseEntity<>(user,HttpStatus.CREATED);
 
         }
 
