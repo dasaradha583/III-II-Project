@@ -73,106 +73,43 @@ const Login = () => {
                     </button>
                 </div>
 
-                {activeTab === "donor" && (
-                    <form onSubmit={handleSubmit}>
-                        <div className="mb-3">
-                            <label htmlFor="donorEmail" className="form-label">Email</label>
-                            <input
-                                type="email"
-                                className="form-control"
-                                id="donorEmail"
-                                placeholder="Enter your email"
-                                value={email}
-                                onChange={(e) => setEmail(e.target.value)}
-                                required
-                            />
-                        </div>
-                        <div className="mb-3">
-                            <label htmlFor="donorPassword" className="form-label">Password</label>
-                            <input
-                                type="password"
-                                className="form-control"
-                                id="donorPassword"
-                                placeholder="Enter your password"
-                                value={password}
-                                onChange={(e) => setPassword(e.target.value)}
-                                required
-                            />
-                        </div>
-                        <button type="submit" className="btn btn-primary w-100">
-                            Login as Donor
-                        </button>
-                        <p className="text-center mt-3">
-                            Don't have an account? <a href="/signup">Sign Up</a>
-                        </p>
-                        <p className="text-center mt-2">
-                            <a href="/reset-password">Forgot Password?</a>
-                        </p>
-                    </form>
-                )}
+                <form onSubmit={handleSubmit}>
+                    <div className="mb-3">
+                        <label htmlFor="email" className="form-label">Email</label>
+                        <input
+                            type="email"
+                            className="form-control"
+                            id="email"
+                            placeholder="Enter your email"
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
+                            required
+                        />
+                    </div>
+                    <div className="mb-3">
+                        <label htmlFor="password" className="form-label">Password</label>
+                        <input
+                            type="password"
+                            className="form-control"
+                            id="password"
+                            placeholder="Enter your password"
+                            value={password}
+                            onChange={(e) => setPassword(e.target.value)}
+                            required
+                        />
+                    </div>
+                    <button type="submit" className="btn btn-primary w-100">
+                        Login as {activeTab.charAt(0).toUpperCase() + activeTab.slice(1)}
+                    </button>
+                </form>
 
-                {activeTab === "admin" && (
-                    <form onSubmit={handleSubmit}>
-                        <div className="mb-3">
-                            <label htmlFor="adminEmail" className="form-label">Email</label>
-                            <input
-                                type="email"
-                                className="form-control"
-                                id="adminEmail"
-                                placeholder="Enter your email"
-                                value={email}
-                                onChange={(e) => setEmail(e.target.value)}
-                                required
-                            />
-                        </div>
-                        <div className="mb-3">
-                            <label htmlFor="adminPassword" className="form-label">Password</label>
-                            <input
-                                type="password"
-                                className="form-control"
-                                id="adminPassword"
-                                placeholder="Enter your password"
-                                value={password}
-                                onChange={(e) => setPassword(e.target.value)}
-                                required
-                            />
-                        </div>
-                        <button type="submit" className="btn btn-primary w-100">
-                            Login as Admin
-                        </button>
-                    </form>
-                )}
-                {activeTab === "hospital" && (
-                    <form onSubmit={handleSubmit}>
-                        <div className="mb-3">
-                            <label htmlFor="hospitalEmail" className="form-label">Email</label>
-                            <input
-                                type="email"
-                                className="form-control"
-                                id="hospitalEmail"
-                                placeholder="Enter your email"
-                                value={email}
-                                onChange={(e) => setEmail(e.target.value)}
-                                required
-                            />
-                        </div>
-                        <div className="mb-3">
-                            <label htmlFor="hospitalPassword" className="form-label">Password</label>
-                            <input
-                                type="password"
-                                className="form-control"
-                                id="hospitalPassword"
-                                placeholder="Enter your password"
-                                value={password}
-                                onChange={(e) => setPassword(e.target.value)}
-                                required
-                            />
-                        </div>
-                        <button type="submit" className="btn btn-primary w-100">
-                            Login as Hospital
-                        </button>
-                    </form>
-                )}
+                {/* Sign Up and Forgot Password Links */}
+                <p className="text-center mt-3">
+                    Don't have an account? <a href="/signup">Sign Up</a>
+                </p>
+                <p className="text-center mt-2">
+                    <a href="/reset-password">Forgot Password?</a>
+                </p>
 
                 {error && <p className="text-danger text-center mt-3">{error}</p>}
             </div>

@@ -1,16 +1,16 @@
+/* Hero Section */
 .hero-section {
     position: relative;
-    height: 100vh; /* Full viewport height */
-    background-image: url("../assets/BloodDonation.jpg"); /* Use local image */
-    background-size: cover; /* Ensure the image covers the full background */
+    min-height: 100vh; /* Ensure full viewport height */
+    background-image: url("../assets/BloodDonation.jpg");
+    background-size: cover;
     background-position: center;
-    background-repeat: no-repeat; /* Prevent the image from repeating */
+    background-repeat: no-repeat;
     color: white;
-    padding-top: 80px; /* Add padding to prevent overlap with navbar */
-    padding-bottom: 40px; /* Add padding at the bottom for the button */
+    padding: 80px 5%;
     display: flex;
-    align-items: center;
     justify-content: flex-end; /* Align content to the right */
+    align-items: center; /* Center content vertically */
 }
 
 .hero-section::before {
@@ -20,7 +20,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(0, 0, 0, 0.5); /* Dark overlay for better text visibility */
+    background: rgba(0, 0, 0, 0.5);
     z-index: 1;
 }
 
@@ -29,31 +29,38 @@
     z-index: 2;
     max-width: 800px; /* Limit the width of the content */
     width: 100%;
-    padding-right: 20px; /* Add padding to the right */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center text, stats, and button horizontally */
+    text-align: center; /* Center text inside the content */
 }
 
 .hero-text h2 {
-    font-size: 2.5rem; /* Large heading size */
+    font-size: 2.5rem;
     margin-bottom: 1rem;
     color: #ff4d4d;
 }
 
 .hero-text p {
-    font-size: 1.1rem; /* Paragraph size */
+    font-size: 1.1rem;
     margin-bottom: 1.5rem;
     line-height: 1.8;
     color: white;
 }
 
+/* Stats Box */
 .stats {
     background-color: rgba(255, 255, 255, 0.1);
     padding: 1.5rem;
     border-radius: 8px;
-    margin-bottom: 2rem;
+    margin-top: 2rem; /* Add margin to separate from text */
+    width: 100%; /* Take full width of .hero-content */
+    max-width: 600px; /* Limit width for better layout */
+    text-align: center; /* Center text inside the stats box */
 }
 
 .stats h3 {
-    font-size: 1.5rem; /* Stats heading size */
+    font-size: 1.5rem;
     color: #ff4d4d;
     margin-bottom: 1rem;
 }
@@ -64,11 +71,12 @@
 }
 
 .stats li {
-    font-size: 1rem; /* Stats list item size */
+    font-size: 1rem;
     color: white;
     margin-bottom: 0.5rem;
 }
 
+/* Call-to-Action Button */
 .cta-button {
     background-color: #ff4d4d;
     color: white;
@@ -78,10 +86,8 @@
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease;
-    display: block;
-    /* Center the button */
-    /* Add space above the button */
-    margin: 2rem auto 0;
+    display: inline-block;
+    margin-top: 1.5rem;
 }
 
 .cta-button:hover {
@@ -90,62 +96,39 @@
 
 /* Responsive Design */
 @media (max-width: 768px) {
-    .hero-section {
-        padding-top: 60px; /* Reduce padding for smaller screens */
-        padding-bottom: 20px; /* Reduce padding for smaller screens */
-        justify-content: center; /* Center content on smaller screens */
-    }
-
     .hero-content {
-        padding-right: 0; /* Remove right padding on smaller screens */
-        text-align: center; /* Center text on smaller screens */
-    }
-
-    .hero-text h2 {
-        font-size: 2rem; /* Reduce heading size for smaller screens */
-    }
-
-    .hero-text p {
-        font-size: 1rem; /* Reduce paragraph size for smaller screens */
+        max-width: 90%;
     }
 
     .stats {
-        padding: 1rem; /* Reduce padding for smaller screens */
-    }
-
-    .stats h3 {
-        font-size: 1.25rem; /* Reduce stats heading size for smaller screens */
-    }
-
-    .stats li {
-        font-size: 0.9rem; /* Reduce stats list item size for smaller screens */
+        max-width: 90%;
     }
 
     .cta-button {
-        width: 100%; /* Make the button full width on smaller screens */
-        max-width: 300px; /* Limit the button width */
-        font-size: 0.9rem; /* Reduce button font size for smaller screens */
+        width: 100%;
+        max-width: 300px;
+        font-size: 0.9rem;
     }
 }
 
 @media (max-width: 480px) {
     .hero-text h2 {
-        font-size: 1.75rem; /* Further reduce heading size for very small screens */
+        font-size: 1.75rem;
     }
 
     .hero-text p {
-        font-size: 0.9rem; /* Further reduce paragraph size for very small screens */
+        font-size: 0.9rem;
     }
 
     .stats h3 {
-        font-size: 1.1rem; /* Further reduce stats heading size for very small screens */
+        font-size: 1.1rem;
     }
 
     .stats li {
-        font-size: 0.8rem; /* Further reduce stats list item size for very small screens */
+        font-size: 0.8rem;
     }
 
     .cta-button {
-        font-size: 0.8rem; /* Further reduce button font size for very small screens */
+        font-size: 0.8rem;
     }
 }

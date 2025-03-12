@@ -5,7 +5,10 @@
     padding: 1rem 2rem;
     background-color: #ff4d4d;
     color: white;
-    height: 60px;
+    min-height: 60px; /* Prevents shrinking */
+    position: relative; /* Ensures it doesn't overlap */
+    width: 100%;
+    z-index: 1000; /* Keeps navbar above other content */
 }
 
 .navbar-left h1 {
@@ -34,11 +37,26 @@
 @media (max-width: 768px) {
     .navbar {
         flex-direction: column;
-        align-items: flex-start;
+        align-items: center; /* Center items */
         padding: 1rem;
+        height: auto; /* Adjust height dynamically */
     }
 
     .navbar-right {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+        width: 100%;
         margin-top: 1rem;
     }
+
+    .nav-link {
+        font-size: 1.2rem;
+    }
+}
+
+/* Fixing Overlapping Issue */
+.main-content {
+    margin-top: 70px; /* Adjust based on navbar height */
 }
