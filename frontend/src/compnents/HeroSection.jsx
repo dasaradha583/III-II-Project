@@ -28,7 +28,7 @@ const HeroSection = () => {
                 </div>
                 <button
                     className="cta-button"
-                    onClick={() => alert("Thank you for your interest in donating blood!")}
+                    onClick={() => window.location.href = '/donation-info'}
                 >
                     Donate Now
                 </button>

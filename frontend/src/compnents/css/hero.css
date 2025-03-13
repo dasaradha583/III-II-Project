@@ -31,7 +31,7 @@
     width: 100%;
     display: flex;
     flex-direction: column;
-    align-items: center; /* Center text, stats, and button horizontally */
+    align-items: flex-end; /* Align text, stats, and button to the right */
     text-align: center; /* Center text inside the content */
 }
 
@@ -54,9 +54,9 @@
     padding: 1.5rem;
     border-radius: 8px;
     margin-top: 2rem; /* Add margin to separate from text */
-    width: 100%; /* Take full width of .hero-content */
+    width: auto; /* Take full width of .hero-content */
     max-width: 600px; /* Limit width for better layout */
-    text-align: center; /* Center text inside the stats box */
+    text-align: left; /* Align text to the right inside the stats box */
 }
 
 .stats h3 {
@@ -88,6 +88,7 @@
     transition: background-color 0.3s ease;
     display: inline-block;
     margin-top: 1.5rem;
+    align-items: center;
 }
 
 .cta-button:hover {

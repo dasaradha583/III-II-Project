@@ -1,17 +1,17 @@
 import React, { useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
 import "./App.css";
+import Footer from "./compnents/Footer";
 import DonorNavbar from "./compnents/DonorViews/DonarNavbar";
 import AdminNavbar from "./compnents/AdminViews/AdminNavbar";
 import HospitalNavbar from "./compnents/HospitalViews/HospitalNavbar";
 import Navbar from "./compnents/Navbar";
-import HeroSection from "./compnents/HeroSection";
+import Home from "./compnents/Home/Home";
 import Login from "./compnents/Logins/Login";
 import DonorDashboard from "./compnents/DonorViews/DonorDashboard";
 import AdminDashboard from "./compnents/AdminViews/AdminDashboard";
 import HospitalDashboard from "./compnents/HospitalViews/HosptialDashboard";
-import ContactUs from "./compnents/ContactUs"; // Import ContactUs component
-import Footer from "./compnents/Footer";
+import ContactUs from "./compnents/ContactUs";
 
 function App() {
     const location = useLocation();
@@ -51,16 +51,17 @@ function App() {
         <div className="App">
             {renderNavbar()}
             <Routes>
-                <Route path="/" element={<HeroSection />} />
-                <Route path="/login" element={<Login />} />
-                <Route path="/donor-dashboard" element={<DonorDashboard />} />
-                <Route path="/admin-dashboard" element={<AdminDashboard />} />
-                <Route path="/hospital-dashboard" element={<HospitalDashboard />} />
-                <Route path="/contact" element={<ContactUs />} /> {/* Add route for ContactUs */}
+                <Route path="/" element={<Home/>}/>
+                <Route path="/login" element={<Login/>}/>
+                <Route path="/donor-dashboard" element={<DonorDashboard/>}/>
+                <Route path="/admin-dashboard" element={<AdminDashboard/>}/>
+                <Route path="/hospital-dashboard" element={<HospitalDashboard/>}/>
+                <Route path="/contact" element={<ContactUs/>}/>
             </Routes>
-            <Footer />
+
         </div>
     );
+
 }
 
 export default function AppWrapper() {
