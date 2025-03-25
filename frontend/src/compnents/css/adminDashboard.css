@@ -40,12 +40,13 @@
     margin: 5px 0;
     border: none;
     border-radius: 5px;
-    background-color: #007bff;
+    background-color: #d22929;
     color: white;
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
 
 .action-card button:hover {
-    background-color: #0056b3;
+    background-color: rgba(210, 41, 41, 0.19);
+    color:#d22929;
 }

@@ -3,16 +3,19 @@ package BBMS.Model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
-import lombok.Data;
+
+import java.sql.Date;
+
 
 @Entity
-@Data
 public class User {
     @Id
     private  Integer id;
-    private String name;
-    private String email;
+    private  String email;
     private String password;
-    private String role;
-    private String phoneNo;
+    private Date DOB;
+    private String gender;
+    private String bloodGroup;
+    private String height;
+    private String weight;
 }

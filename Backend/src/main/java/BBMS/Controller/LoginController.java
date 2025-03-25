@@ -1,6 +1,7 @@
 package BBMS.Controller;
 
 
+import BBMS.Model.LoginUser;
 import BBMS.Model.User;
 import BBMS.Service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,9 +19,9 @@ public class LoginController {
     UserService userService;
 
     @PostMapping("login")
-    public ResponseEntity<User> signup(@RequestBody User user) {
+    public ResponseEntity<LoginUser> signup(@RequestBody LoginUser user) {
 
-        //userService.save(user);
+        System.out.println(user);
         if(userService.save(user).equals("invalid")) {
             return new ResponseEntity<>(user,HttpStatus.CREATED);
 
