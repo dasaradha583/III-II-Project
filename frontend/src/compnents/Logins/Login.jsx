@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom"; // For navigation
+import { useNavigate } from "react-router-dom";
 import "../css/login.css";
 
 const Login = () => {
@@ -31,11 +31,11 @@ const Login = () => {
                 console.log("Login successful:", data);
 
                 if (data.role === "donor") {
-                    navigate("/donor-dashboard", { state: { userId: data.userId } });
+                    navigate("/donor-dashboard", { state: { userData: data } });
                 } else if (data.role === "admin") {
                     navigate("/admin-dashboard", { state: { userId: data.userId } });
                 } else if (data.role === "hospital") {
-                    navigate("/hospital-dashboard", { state: { userId: data.userId } });
+                    navigate("/hospital-dashboard", { state: { hospitalData: data } });
                 }
             } else {
                 const errorData = await response.json();
@@ -48,9 +48,9 @@ const Login = () => {
     };
 
     return (
-        <section className="login-section d-flex align-items-center justify-content-center">
+        <section className="login-section">
             <div className="login-container">
-                <h2 className="text-center mb-4">Login</h2>
+                <h2 className="text-center mb-4">Blood Bank System</h2>
                 <div className="tabs mb-4">
                     <button
                         className={`tab-button ${activeTab === "donor" ? "active" : ""}`}
@@ -102,10 +102,14 @@ const Login = () => {
                     </button>
                 </form>
 
-                {/* Sign Up and Forgot Password Links */}
-                <p className="text-center mt-3">
-                    Don't have an account? <a href="/signup">Sign Up</a>
-                </p>
+                {/* Conditional Sign Up link - only shown for donor and hospital tabs */}
+                {activeTab !== "admin" && (
+                    <p className="text-center mt-3">
+                        New {activeTab}? <a href={`/signup-${activeTab}`}>Sign Up</a>
+                    </p>
+                )}
+
+                {/* Forgot Password link */}
                 <p className="text-center mt-2">
                     <a href="/reset-password">Forgot Password?</a>
                 </p>

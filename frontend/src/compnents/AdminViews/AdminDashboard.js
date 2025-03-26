@@ -1,10 +1,15 @@
 import React from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import "../css/adminDashboard.css";
 
 const AdminDashboard = () => {
     const location = useLocation();
+    const navigate = useNavigate();
     const userId = location.state?.userId;
+
+    const handleReportsClick = () => {
+        navigate("/admin/reports");
+    };
 
     return (
         <div className="admin-dashboard">
@@ -19,16 +24,18 @@ const AdminDashboard = () => {
                     <button>Edit User</button>
                     <button>Delete User</button>
                 </div>
-                <div className="action-card">
-                    <h2>View Reports</h2>
-                    <button>Daily Reports</button>
-                    <button>Monthly Reports</button>
-                    <button>Annual Reports</button>
-                </div>
-                <div className="action-card">
+                <div className="action-card settings-card">
                     <h2>Settings</h2>
-                    <button>Profile Settings</button>
-                    <button>System Settings</button>
+                    <div className="settings-buttons">
+                        <button>Profile Settings</button>
+                        <button>System Settings</button>
+                    </div>
+                </div>
+                <div className="action-card chart-card" onClick={handleReportsClick}>
+                    <h2>Quick Reports</h2>
+                    <div className="pie-chart-placeholder">
+                        <span>📊 Click to view reports</span>
+                    </div>
                 </div>
             </div>
         </div>
